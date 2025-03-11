@@ -1,0 +1,42 @@
+{
+  "name": "winsparkle-template",
+  "displayName": "WinSparkle Project Template",
+  "version": "1.0.0",
+  "description": "Project template for creating Windows desktop applications with integrated automatic updates using WinSparkle",
+  "publisher": "Tizzle716",
+  "categories": ["Templates", "Other"],
+  "engines": {
+    "cursor": "^0.1.0"
+  },
+  "activationEvents": [
+    "onCommand:winsparkle-template.createProject"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "winsparkle-template.createProject",
+        "title": "Create WinSparkle Project",
+        "category": "WinSparkle"
+      }
+    ],
+    "templates": [
+      {
+        "id": "winsparkle-cpp",
+        "type": "project",
+        "name": "WinSparkle Windows Application",
+        "description": "Create a new Windows desktop application with WinSparkle automatic updates",
+        "language": "cpp"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.63.0",
+    "typescript": "^4.5.4"
+  }
+}
