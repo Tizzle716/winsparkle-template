@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+        platform: [x64, x86]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Setup VSTest Path
+      uses: darenm/Setup-VSTest@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Restore NuGet packages
+      run: nuget restore WinSparkleVSIX.sln
+
+    - name: Build
+      run: |
+        msbuild /m /p:Configuration=${{matrix.configuration}} /p:Platform=${{matrix.platform}} WinSparkleVSIX.sln
+
+    - name: Test
+      run: vstest.console.exe **\bin\**\*Tests.dll
+
+    - name: Upload VSIX
+      if: matrix.configuration == 'Release' && matrix.platform == 'x64'
+      uses: actions/upload-artifact@v2
+      with:
+        name: WinSparkleTemplate-VSIX
+        path: bin/Release/WinSparkleTemplate.vsix
