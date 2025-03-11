@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="WinSparkleTemplate.Tizzle716.1a73961c-ee85-42ac-9b8e-75b6f411c3d9" Version="1.0" Language="en-US" Publisher="Tizzle716" />
+        <DisplayName>WinSparkle Application Template</DisplayName>
+        <Description xml:space="preserve">Project template for creating Windows desktop applications with integrated automatic updates using WinSparkle.</Description>
+        <MoreInfo>https://github.com/Tizzle716/winsparkle-template</MoreInfo>
+        <License>LICENSE</License>
+        <GettingStartedGuide>docs/getting-started.md</GettingStartedGuide>
+        <ReleaseNotes>docs/release-notes.md</ReleaseNotes>
+        <Icon>Resources\icon.png</Icon>
+        <PreviewImage>Resources\preview.png</PreviewImage>
+        <Tags>winsparkle, updates, c++, windows, desktop</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.7.2,)" />
+    </Dependencies>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.VC.CoreIde" Version="[17.0,18.0)" DisplayName="C++ core features" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.Windows10SDK" Version="[17.0,18.0)" DisplayName="Windows 10 SDK" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\WinSparkleApp.zip" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" AssemblyName="|%CurrentProject%;AssemblyName|" />
+    </Assets>
+</PackageManifest>
