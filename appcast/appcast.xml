@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>${APP_NAME} - Updates</title>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>Version ${VERSION}</title>
+            <sparkle:version>${VERSION}</sparkle:version>
+            <description>
+                <![CDATA[
+                    <h2>New Features</h2>
+                    <ul>
+                        <li>Initial release</li>
+                    </ul>
+                ]]>
+            </description>
+            <pubDate>${PUBDATE}</pubDate>
+            <enclosure
+                url="https://${UPDATE_DOMAIN}/${APP_NAME}-${VERSION}.exe"
+                sparkle:version="${VERSION}"
+                length="1234567"
+                type="application/octet-stream"
+                sparkle:dsaSignature="${DSA_SIGNATURE}" />
+        </item>
+    </channel>
+</rss>
